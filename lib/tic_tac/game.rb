@@ -8,9 +8,6 @@ module TicTac
       @conversions = {0 => 'O', 1 => 'X', 2 => false}
     end
 
-    def dimension_squared
-      @dimension * @dimension
-    end
 
     def over?
       false
@@ -25,8 +22,17 @@ module TicTac
     end
 
     def random_move
-      Random.new.rand(1..dimension_squared)
+      available_positions.shuffle.first + 1 if !available_positions.empty?
     end
+
+    def available_positions
+      @state.each_with_index.collect { | v, i |  i if v.match /-/ }.compact
+    end
+
+    def dimension_squared
+      @dimension * @dimension
+    end
+
   end
 
 end

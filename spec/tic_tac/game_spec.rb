@@ -72,7 +72,9 @@ describe Game do
       Game.new( state: @o_winner).winner.should == 'O'
     end
 
-    it "should recognize a horizontal win"
+    it "should recognize a horizontal win" do
+      pending
+    end
 
     it "should recognize a vertical win"
   end
@@ -116,7 +118,7 @@ describe Game do
     end
 
     it "should not move a space that has already been used" do
-
+      pending
     end
 
     it "should not move on a full board" do
