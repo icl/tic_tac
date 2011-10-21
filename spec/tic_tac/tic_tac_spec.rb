@@ -28,14 +28,27 @@ describe Game do
                        - - - ])
   end
 
+  it "should assume a dimension of 3" do
+    Game.new.dimension.should == 3
+  end
+
+  it "should accept a dimension parameter" do
+    Game.new(dimension:4).dimension.should == 4
+  end
+
   describe "Determining whether the game is over" do
+
+    it "should not think a new game is over" do
+      Game.new.should_not be_over
+    end
+
     it "should recognize if a player has a already won" do
       game = Game.new(state: @x_winner , dimension: 3)
       game.should be_over
     end
 
     it "should recognize a tie" do
-      game = Game.new
+      game = Game.new(state: @tie_game)
     end
   end
 
