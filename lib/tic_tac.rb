@@ -1,5 +1,8 @@
 require "tic_tac/version"
 
 module TicTac
-  # Your code goes here...
+
+  autoload :Game, 'tic_tac/game'
+
 end
+
