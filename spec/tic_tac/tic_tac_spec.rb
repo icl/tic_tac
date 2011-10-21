@@ -1,5 +1,5 @@
 require './spec/spec_helper'
-require './lib/tic_tac/tic_tac'
+require './lib/tic_tac'
 
 
 
