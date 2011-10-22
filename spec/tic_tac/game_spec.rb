@@ -20,6 +20,14 @@ describe Game do
     @cat_board = %w[ X X O
                      O O X
                      X O O ]
+
+    @vertical_win = %w[- X -
+                       - X -
+                       - X -]
+
+    @diagonal_win = %w[ X - -
+                        - X -
+                        - - X ]
   end
 
   it "should accept an array showing the state of the board" do
@@ -73,10 +81,17 @@ describe Game do
     end
 
     it "should recognize a horizontal win" do
-      pending
+      Game.new(state: @x_winner).winner.should == 'X'
     end
 
-    it "should recognize a vertical win"
+    it "should recognize a vertical win" do
+
+      Game.new(state: @vertical_win).winner.should == 'X'
+    end
+
+    it "should recognize a diagonal win" do
+      Game.new(state: @diagonal_win).winner.should == 'X'
+    end
   end
 
   describe "Making good moves" do
@@ -118,7 +133,12 @@ describe Game do
     end
 
     it "should not move a space that has already been used" do
-      pending
+
+      game = Game.new(dimension:5)
+      
+      100.times do
+        game.mark_at_position( game.random_move).should be_nil
+      end
     end
 
     it "should not move on a full board" do
