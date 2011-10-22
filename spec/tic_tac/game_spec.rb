@@ -137,7 +137,7 @@ describe Game do
       game = Game.new(dimension:5)
       
       100.times do
-        game.mark_at_position( game.random_move).should be_nil
+        game.mark_at_position( game.random_move).should == '-'
       end
     end
 
